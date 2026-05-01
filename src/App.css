@@ -1,38 +1,240 @@
-.App {
+/* ========== RESET E VARIÁVEIS ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-primaria: #00ff00; /* Verde neon */
+  --cor-secundaria: #000000; /* Preto */
+  --cor-texto: #ffffff; /* Branco */
+  --cor-hover: #33ff33; /* Verde mais claro para interações */
+}
+
+body {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* ========== HEADER ========== */
+.header {
+  background-color: var(--cor-secundaria);
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between; /* Espaça logo e nav */
+  align-items: center; /* Alinha verticalmente ao centro */
+  border-bottom: 2px solid var(--cor-primaria);
+}
+
+.header h1 {
+  color: var(--cor-primaria);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.header nav ul {
+  list-style: none; /* Remove bullets */
+  display: flex; /* Links lado a lado */
+  gap: 25px; /* Espaço entre links */
+}
+
+.header nav ul li a {
+  color: var(--cor-texto);
+  text-decoration: none; /* Remove sublinhado */
+  padding: 8px 12px;
+  transition: all 0.3s ease; /* Transição suave */
+}
+
+.header nav ul li a:hover {
+  color: var(--cor-primaria);
+  text-shadow: 0 0 8px var(--cor-primaria);
+}
+
+/* ========== BANNER ========== */
+.banner {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #111;
+  padding: 100px 20px;
   text-align: center;
+  border: 1px solid var(--cor-primaria);
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.banner h1 {
+  font-size: 3rem;
+  color: var(--cor-primaria);
+  text-shadow: 0 0 15px var(--cor-primaria);
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* ========== LISTA DE PRODUTOS ========== */
+/* ========== LISTA DE PRODUTOS ========== */
+.lista-produtos {
+  padding: 50px 5%;
+  text-align: center;
+  display: grid; /* ← ADICIONA AQUI */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ← ADICIONA AQUI */
+  gap: 30px; /* ← ADICIONA AQUI */
+  justify-items: center; /* ← ADICIONA AQUI */
+}
+
+.lista-produtos h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 40px;
+  font-size: 2rem;
+  grid-column: 1 / -1; /* ← ADICIONA para o h2 ocupar toda a largura */
+}
+
+/* ========== REMOVE A CLASSE .grid-container ========== */
+
+/* ========== GRID DOS PRODUTOS ========== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* ========== CARD PRODUTO ========== */
+.card-produto {
+  background-color: #0a0a0a;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+}
+
+.card-produto:hover {
+  transform: scale(1.05); /* Efeito de zoom */
+  box-shadow: 0 0 20px var(--cor-primaria); /* Brilho neon */
+}
+
+.card-produto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-produto h2 {
+  margin-top: 15px;
+  color: var(--cor-texto);
+  font-size: 1.4rem;
+}
+
+.card-produto p {
+  color: var(--cor-primaria); /* Preço em verde */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.card-produto button {
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+
+.card-produto button:hover {
+  background-color: var(--cor-hover);
+}
+
+/* ========== SOBRE ========== */
+.sobre {
+  padding: 60px 5%;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza o bloco */
+  line-height: 1.8;
+}
+
+.sobre h1, .sobre h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 20px;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background-color: var(--cor-secundaria);
+  padding: 40px;
+  text-align: center;
+  margin-top: 50px;
+  border-top: 2px solid var(--cor-primaria);
+  color: #888;
+}
+
+.banner h1 {
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 2rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* ========== PÁGINA INICIAL - TOP 10 GAMES ========== */
+.game-list {
+  padding: 50px 5%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.game-list h1 {
+  color: var(--cor-primaria);
+  margin-bottom: 40px;
+  font-size: 2rem;
+  grid-column: 1 / -1; /* h1 ocupa toda a largura */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+/* ========== GAME CARD ========== */
+.game-card {
+  background-color: #0a0a0a;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--cor-primaria);
+}
+
+.game-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.game-card h1 {
+  margin-top: 15px;
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+}
+
+.game-card p {
+  color: var(--cor-texto);
+  margin: 10px 0;
+  font-size: 1.1rem;
 }
